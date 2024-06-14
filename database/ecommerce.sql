@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2024 at 08:34 AM
+-- Generation Time: Jun 14, 2024 at 11:07 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin_info` (
 --
 
 INSERT INTO `admin_info` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
-(1, 'admin', 'admin@gmail.com', '25f9e794323b453885f5181f1b624d0b');
+(1, 'admin', 'admin@gmail.com', '123456789');
 
 -- --------------------------------------------------------
 
@@ -85,10 +85,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `p_id`, `ip_add`, `user_id`, `qty`) VALUES
-(33, 21, '::1', 27, 1),
-(34, 35, '::1', 0, 1),
-(35, 1, '::1', -1, 1),
-(36, 7, '::1', 1, 1);
+(161, 3, '::1', 29, 1);
 
 -- --------------------------------------------------------
 
@@ -112,75 +109,12 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_products`
---
-
-CREATE TABLE `order_products` (
-  `order_pro_id` int(10) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `qty` int(15) DEFAULT NULL,
-  `amt` int(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `order_products`
---
-
-INSERT INTO `order_products` (`order_pro_id`, `order_id`, `product_id`, `qty`, `amt`) VALUES
-(73, 1, 1, 1, 5000),
-(74, 1, 4, 2, 64000),
-(75, 1, 8, 1, 40000),
-(91, 2, 50, 1, 200000),
-(92, 3, 2, 1, 8500),
-(93, 4, 26, 1, 400000),
-(94, 4, 2, 1, 8500),
-(95, 4, 3, 1, 25000),
-(96, 4, 6, 1, 153000),
-(97, 4, 51, 1, 300000),
-(98, 5, 9, 1, 1320000),
-(99, 5, 12, 1, 20000),
-(100, 6, 1, 1, 5000),
-(101, 7, 6, 1, 153000),
-(102, 8, 3, 1, 25000),
-(103, 9, 3, 1, 25000),
-(104, 10, 7, 1, 254000),
-(105, 11, 1, 1, 5000),
-(106, 12, 1, 1, 5000),
-(107, 13, 1, 1, 5000),
-(108, 14, 1, 1, 5000),
-(109, 14, 2, 1, 8500),
-(110, 15, 1, 1, 5000),
-(111, 15, 2, 1, 8500),
-(112, 16, 21, 1, 15000),
-(113, 21, 3, 1, 25000),
-(114, 27, 1, 1, 5000),
-(115, 32, 1, 1, 5000),
-(116, 33, 1, 1, 5000),
-(117, 34, 4, 1, 50000),
-(118, 35, 3, 1, 25000),
-(119, 36, 8, 1, 545000),
-(120, 37, 8, 1, 545000),
-(121, 38, 7, 1, 254000),
-(122, 39, 1, 1, 5000),
-(123, 40, 3, 1, 25000),
-(124, 41, 3, 1, 25000),
-(125, 42, 1, 1, 5000),
-(126, 43, 9, 1, 1320000),
-(127, 44, 8, 1, 545000),
-(128, 45, 2, 1, 8500),
-(129, 46, 7, 1, 254000);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `payment`
 --
 
 CREATE TABLE `payment` (
   `f_name` varchar(255) NOT NULL,
   `payment_id` int(255) NOT NULL,
-  `order_pro_id` int(11) NOT NULL,
   `id_game` int(11) NOT NULL,
   `mobile` varchar(255) NOT NULL,
   `payment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -193,12 +127,8 @@ CREATE TABLE `payment` (
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`f_name`, `payment_id`, `order_pro_id`, `id_game`, `mobile`, `payment_date`, `amount`, `payment_method`, `status`) VALUES
-('edi gurero', 18, 0, 12388653, '081744125639', '2024-05-31 10:52:44', 400000, 'Mandiri - xxxxxxx', 'Success'),
-('edi gurero', 19, 0, 998776221, '081744125639', '2024-05-31 11:48:06', 110000, 'BRI - xxxxxxx', 'Success'),
-('depa sayo', 20, 0, 23348890, '081714425263', '2024-06-02 13:48:32', 15000, 'Mandiri - xxxxxxx', 'Success'),
-(' ryan piskadinata', 21, 0, 2147483647, '089612508842', '2024-06-03 08:07:44', 75000, 'BCA - xxxxxxx', 'Success'),
-('edi gurero', 22, 0, 75590021, '081744125639', '2024-06-04 08:07:35', 254000, 'Mandiri - xxxxxxx', 'Success');
+INSERT INTO `payment` (`f_name`, `payment_id`, `id_game`, `mobile`, `payment_date`, `amount`, `payment_method`, `status`) VALUES
+('edi tampan', 1, 2147483647, '085711325672', '2024-06-14 09:06:47', 25000, 'BCA - xxxxxxx', 'Success');
 
 -- --------------------------------------------------------
 
@@ -299,10 +229,9 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) VALUES
-(1, 'edi', 'gurero', 'editampan@gmail.com', 'edipanjang', '081744125639', 'cisarua', 'bogor'),
-(12, 'Rangga', 'Nurta', 'rangga@gmail.com', 'rangganurta', '081322575253', 'Pangandaran', '46094'),
-(26, 'Asep', 'Surasep', 'asep@gmail.com', 'asepkasep', '081366758762', 'Jalan Pluto No.2', 'Bandung'),
-(27, 'depa', 'sayo', 'depasayo@gmail.com', 'qwe123098', '081714425263', 'kranggan', 'bekasi');
+(27, 'ryan', 'piskadinata', 'ryandmasiv@gmail.com', '1234567890', '089612508842', 'klender', 'jakarta tim'),
+(28, 'depa', 'sayo', 'depasayo@gmail.com', 'qwe123098', '089887263222', 'buaran', 'jakarta tim'),
+(29, 'edi', 'tampan', 'editampan@gmail.com', 'edipanjang', '085711325672', 'tambun', 'bekasi');
 
 --
 -- Triggers `user_info`
@@ -313,6 +242,32 @@ INSERT INTO user_info_backup VALUES(new.user_id,new.first_name,new.last_name,new
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_info_backup`
+--
+
+CREATE TABLE `user_info_backup` (
+  `user_id` int(10) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `email` varchar(300) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `address1` varchar(300) NOT NULL,
+  `address2` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_info_backup`
+--
+
+INSERT INTO `user_info_backup` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) VALUES
+(27, 'ryan', 'piskadinata', 'ryandmasiv@gmail.com', '1234567890', '0896125088', 'klender', 'jakarta tim'),
+(28, 'depa', 'sayo', 'depasayo@gmail.com', 'qwe123098', '0898872632', 'buaran', 'jakarta tim'),
+(29, 'edi', 'tampan', 'editampan@gmail.com', 'edipanjang', '0857113256', 'tambun', 'bekasi');
 
 --
 -- Indexes for dumped tables
@@ -343,18 +298,10 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
 
 --
--- Indexes for table `order_products`
---
-ALTER TABLE `order_products`
-  ADD PRIMARY KEY (`order_pro_id`),
-  ADD KEY `order_products` (`order_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
-  ADD PRIMARY KEY (`payment_id`) USING BTREE;
+  ADD PRIMARY KEY (`payment_id`);
 
 --
 -- Indexes for table `products`
@@ -366,6 +313,12 @@ ALTER TABLE `products`
 -- Indexes for table `user_info`
 --
 ALTER TABLE `user_info`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `user_info_backup`
+--
+ALTER TABLE `user_info_backup`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -382,54 +335,43 @@ ALTER TABLE `admin_info`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `brand_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `brand_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `order_products`
---
-ALTER TABLE `order_products`
-  MODIFY `order_pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `payment_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for table `user_info_backup`
 --
-
---
--- Constraints for table `order_products`
---
-ALTER TABLE `order_products`
-  ADD CONSTRAINT `order_products` FOREIGN KEY (`order_id`) REFERENCES `orders_info` (`order_id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+ALTER TABLE `user_info_backup`
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
